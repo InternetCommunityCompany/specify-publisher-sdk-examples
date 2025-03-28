@@ -1,0 +1,20 @@
+{
+  "name": "specify-publisher-sdk-example",
+  "version": "0.1.0",
+  "description": "Example usage of Specify Publisher SDK",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow bun",
+    "start": "bun run index.ts"
+  },
+  "dependencies": {
+    "@specify-sh/sdk": "^0.1.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "@types/node": "^20.0.0",
+    "@types/dotenv": "^8.2.3"
+  }
+}
