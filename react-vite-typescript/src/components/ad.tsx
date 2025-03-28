@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
-import Specify, { AdResponse, AuthenticationError, ValidationError } from "specify-publisher-sdk-test";
+import Specify, { SpecifyAd, AuthenticationError, ValidationError } from "@specify-sh/sdk";
 import { Loader2 } from "lucide-react";
 
 export const Ad = () => {
   const { address, isConnected } = useAccount();
-  const [content, setContent] = useState<AdResponse | null>(null);
+  const [content, setContent] = useState<SpecifyAd | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
