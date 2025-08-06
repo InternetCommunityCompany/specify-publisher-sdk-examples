@@ -1,4 +1,4 @@
-import Specify, { ValidationError } from "@specify-sh/sdk";
+import Specify, { ImageFormat, ValidationError } from "@specify-sh/sdk";
 import dotenv from "dotenv";
 
 // Load environment variables
@@ -18,7 +18,7 @@ async function main() {
     const walletAddress = "0x0000000000000000000000000000000000000000";
 
     // Fetch ad content for the specified wallet address
-    const content = await specify.serve(walletAddress);
+    const content = await specify.serve(walletAddress, ImageFormat.NO_IMAGE);
 
     if (content) {
       console.log("Retrieved ad content:", content);
