@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@specify-sh/sdk": "^0.1.6",
+    "@specify-sh/sdk": "^0.2.1",
     "@tanstack/react-query": "^5.69.0",
     "connectkit": "^1.8.2",
     "lucide-react": "^0.484.0",
