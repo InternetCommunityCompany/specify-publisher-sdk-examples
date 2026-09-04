@@ -43,8 +43,6 @@ Create the `Specify` client once and pass the same instance on every render (`sr
 
 `ConsentBridge` watches `detailedConsent` from `useCookieConsent()` and pushes `Advertising.consented` into `setCookieConsent()`. Reacting to the value rather than to accept and decline callbacks is what makes returning visitors work: the library restores the stored decision on mount, so the effect fires with it on every page load, not only when the user changes their mind. Consent starts `false` on every new client and the SDK never persists it, so that replay is required. Granting consent fires `onIdentityChange()`, which is what lets a still-empty slot try again.
 
-The library injects its own styles at runtime. Do not import `react-cookie-manager/style.css`: version 5.4.1 declares that subpath in its `exports` but ships no CSS file, so the import fails the build.
-
 **Wallets** (`src/wagmi.ts`, `src/wallet.tsx`) — wagmi's `injected()` connector, with `WalletBridge` calling `specify.identify(address)` whenever `useAccount()` reports one. Registering a new address fires `onIdentityChange()`, so connecting a wallet retries a still-empty slot on the spot. `identify()` merges and never removes, since several wallets can be one person and a disconnect does not retract one.
 
 `WalletBridge` renders `null`. It exists to wire wagmi's state into the SDK, not to draw anything.
