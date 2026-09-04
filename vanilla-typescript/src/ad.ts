@@ -53,8 +53,19 @@ function renderAd(ad: SpecifyAd): HTMLAnchorElement {
     card.append(image);
   }
 
+  const attribution = document.createElement("div");
+  attribution.className = "flex items-center gap-2 text-xs text-slate-500";
+  attribution.append(
+    text(
+      "span",
+      "Sponsored",
+      "rounded bg-slate-100 px-1.5 py-0.5 font-medium tracking-wide text-slate-600 uppercase",
+    ),
+    text("span", ad.communityName, ""),
+  );
+
   card.append(
-    text("p", ad.communityName, "text-xs text-slate-500"),
+    attribution,
     text("h2", ad.headline, "font-medium"),
     text("p", ad.content, "text-sm text-slate-600"),
     text("span", ad.ctaLabel, "text-sm font-medium underline"),

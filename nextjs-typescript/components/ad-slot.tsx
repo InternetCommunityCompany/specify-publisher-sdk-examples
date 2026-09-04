@@ -3,6 +3,7 @@
 import { ImageFormat } from "@specify-sh/publisher-sdk";
 import { useSpecifyAd } from "@specify-sh/publisher-sdk/react";
 
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -34,7 +35,12 @@ export function AdSlot() {
           </CardContent>
         )}
         <CardHeader>
-          <CardDescription>{ad.communityName}</CardDescription>
+          <CardDescription className="flex items-center gap-2">
+            <Badge variant="secondary" className="uppercase">
+              Sponsored
+            </Badge>
+            {ad.communityName}
+          </CardDescription>
           <CardTitle>{ad.headline}</CardTitle>
         </CardHeader>
         <CardContent>
