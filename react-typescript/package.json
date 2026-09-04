@@ -14,7 +14,7 @@
     "@specify-sh/publisher-sdk": "^1.1.0",
     "@tanstack/react-query": "^5.102.8",
     "react": "^19.2.8",
-    "react-cookie-consent": "^10.0.2",
+    "react-cookie-manager": "^5.4.1",
     "react-dom": "^19.2.8",
     "viem": "^2.56.3",
     "wagmi": "^3.7.7"

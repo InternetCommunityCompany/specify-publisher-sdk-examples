@@ -1,47 +1,28 @@
 import { useEffect } from "react";
-import CookieConsent, {
-  getCookieConsentValue,
-  VISIBILITY_OPTIONS,
-} from "react-cookie-consent";
+import { useCookieConsent } from "react-cookie-manager";
 
 import { specify } from "./specify";
 
-const COOKIE_NAME = "specify-ads-consent";
+export function ConsentBridge(): null {
+  const { detailedConsent } = useCookieConsent();
 
-interface ConsentBannerProps {
-  visible: string;
-  onResolved: () => void;
+  useEffect(() => {
+    specify.setCookieConsent(detailedConsent?.Advertising?.consented ?? false);
+  }, [detailedConsent]);
+
+  return null;
 }
 
-export function ConsentBanner({ visible, onResolved }: ConsentBannerProps) {
-  useEffect(() => {
-    specify.setCookieConsent(getCookieConsentValue(COOKIE_NAME) === "true");
-  }, []);
-
-  function resolve(granted: boolean): void {
-    specify.setCookieConsent(granted);
-    onResolved();
-  }
+export function ConsentButton() {
+  const { openPreferencesModal } = useCookieConsent();
 
   return (
-    <CookieConsent
-      cookieName={COOKIE_NAME}
-      visible={visible}
-      enableDeclineButton
-      buttonText="Accept"
-      declineButtonText="Reject"
-      onAccept={() => resolve(true)}
-      onDecline={() => resolve(false)}
-      disableStyles
-      containerClasses="fixed inset-x-0 bottom-0 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-white p-4"
-      contentClasses="text-sm"
-      buttonWrapperClasses="flex gap-2"
-      buttonClasses="rounded bg-slate-900 px-3 py-1 text-sm font-medium text-white"
-      declineButtonClasses="rounded border border-slate-300 px-3 py-1 text-sm font-medium"
+    <button
+      type="button"
+      onClick={openPreferencesModal}
+      className="text-sm underline"
     >
-      We use a cookie to personalise the ads shown on this page.
-    </CookieConsent>
+      Consent
+    </button>
   );
 }
-
-export { VISIBILITY_OPTIONS };
