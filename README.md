@@ -6,5 +6,7 @@ Runnable publisher integrations for [`@specify-sh/publisher-sdk`](https://docs.s
 
 | Example | Runtime | What it demonstrates |
 | --- | --- | --- |
+| [`nextjs-typescript`](nextjs-typescript) | Next.js App Router | The `useSpecifyAd()` hook in a Client Component, with shadcn/ui |
+| [`react-typescript`](react-typescript) | Browser via Vite | The `useSpecifyAd()` hook, CMP consent bridge, and wallets via wagmi |
 | [`vanilla-typescript`](vanilla-typescript) | Browser via Vite | Framework-free browser entry point, CMP consent bridge, and wallets via EIP-1193 |
 | [`node-typescript`](node-typescript) | Node.js via Bun | Server entry point with an explicit wallet address |
