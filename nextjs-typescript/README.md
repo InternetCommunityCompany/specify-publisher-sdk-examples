@@ -36,8 +36,6 @@ Open the printed URL. The ad slot fills itself: it serves on mount, and tries ag
 
 **Serving from the client** — every component that touches the SDK is a Client Component. Only the browser can hold the Specify cookie, so only a client component can fill a placement for a visitor who has not connected a wallet. Serving from a Server Component means passing wallet addresses explicitly and losing returning-visitor recognition, which is why the docs [recommend against it](https://docs.specify.sh/publishing/nextjs) and this example does not do it.
 
-The package enforces this. `@specify-sh/publisher-sdk` and `@specify-sh/publisher-sdk/react` both ship a `react-server` export condition that throws at build time, telling you to add `"use client"` or switch to `@specify-sh/publisher-sdk/server`. You get a build error rather than a silent no-fill.
-
 **The key is public** — `NEXT_PUBLIC_SPECIFY_PUBLISHER_KEY` is inlined into the client bundle by design. Publisher keys are not secrets.
 
 **The hook** (`components/ad-slot.tsx`) — `useSpecifyAd()` serves on mount, subscribes to `onIdentityChange()` itself, and keeps the first ad it gets. The client is created once in `lib/specify.ts` and the same instance is passed on every render; a client rebuilt per render would reset consent and the identified addresses each time.
