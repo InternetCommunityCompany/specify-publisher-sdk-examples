@@ -1,0 +1,31 @@
+{
+  "name": "react-typescript",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Serve a Specify publisher ad in React with Vite, wagmi, and Tailwind",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@specify-sh/publisher-sdk": "^1.1.0",
+    "@tanstack/react-query": "^5.102.8",
+    "react": "^19.2.8",
+    "react-cookie-consent": "^10.0.2",
+    "react-dom": "^19.2.8",
+    "viem": "^2.56.3",
+    "wagmi": "^3.7.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~7.0.2",
+    "vite": "^8.2.2"
+  }
+}
