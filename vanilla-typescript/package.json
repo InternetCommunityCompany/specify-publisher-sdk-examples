@@ -1,0 +1,23 @@
+{
+  "name": "vanilla-typescript",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Serve a Specify publisher ad in the browser with no framework, using Vite, TypeScript, and Tailwind",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@specify-sh/publisher-sdk": "^1.1.0",
+    "vanilla-cookieconsent": "^3.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "~5.8.2",
+    "vite": "^7.1.0"
+  }
+}
