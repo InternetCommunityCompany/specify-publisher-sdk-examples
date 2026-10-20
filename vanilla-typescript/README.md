@@ -47,4 +47,4 @@ This matters because `serve()` returns `null` without making a request when it h
 
 The `filled` flag is set only after an ad actually arrives, never before the request. An empty slot therefore stays eligible for the next attempt, while a filled one is never overwritten.
 
-**Error handling** (`src/ad.ts`) — `ValidationError` is thrown only for malformed input, such as a bad wallet address. A no-fill, API failure, or network failure resolves to `null` instead, which is the `No ad available` path.
+**Error handling** (`src/ad.ts`) — there is nothing to catch. A no-fill, API failure, or network failure resolves to `null`, which is the `No ad yet.` path, and an address that isn't an EVM wallet, such as a Solana address, is skipped rather than rejected. `serve()` throws `ValidationError` only when it's called without options.

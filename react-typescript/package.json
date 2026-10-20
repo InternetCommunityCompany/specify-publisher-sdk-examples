@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@specify-sh/publisher-sdk": "^1.1.0",
+    "@specify-sh/publisher-sdk": "^1.2.0",
     "@tanstack/react-query": "^5.102.8",
     "react": "^19.2.8",
     "react-cookie-manager": "^5.4.1",

@@ -1,8 +1,4 @@
-import {
-  ImageFormat,
-  ValidationError,
-  type SpecifyAd,
-} from "@specify-sh/publisher-sdk";
+import { ImageFormat, type SpecifyAd } from "@specify-sh/publisher-sdk";
 
 import { adSlot, statusLabel } from "./elements";
 import { specify } from "./specify";
@@ -14,27 +10,19 @@ export async function fillAdSlot(): Promise<void> {
     return;
   }
 
-  try {
-    const ad = await specify.serve({
-      imageFormat: ImageFormat.LANDSCAPE,
-      adUnitId: "vanilla-example",
-    });
+  const ad = await specify.serve({
+    imageFormat: ImageFormat.LANDSCAPE,
+    adUnitId: "vanilla-example",
+  });
 
-    if (!ad) {
-      statusLabel.textContent = "No ad yet.";
-      return;
-    }
-
-    filled = true;
-    statusLabel.textContent = "";
-    adSlot.append(renderAd(ad));
-  } catch (error) {
-    if (!(error instanceof ValidationError)) {
-      throw error;
-    }
-
-    statusLabel.textContent = `Invalid input: ${error.message}`;
+  if (!ad) {
+    statusLabel.textContent = "No ad yet.";
+    return;
   }
+
+  filled = true;
+  statusLabel.textContent = "";
+  adSlot.append(renderAd(ad));
 }
 
 function renderAd(ad: SpecifyAd): HTMLAnchorElement {

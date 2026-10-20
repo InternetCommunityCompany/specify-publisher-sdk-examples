@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@specify-sh/publisher-sdk": "^1.1.0",
+    "@specify-sh/publisher-sdk": "^1.2.0",
     "vanilla-cookieconsent": "^3.1.0"
   },
   "devDependencies": {
