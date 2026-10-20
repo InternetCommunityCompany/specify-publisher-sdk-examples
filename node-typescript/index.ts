@@ -5,14 +5,14 @@ import {
 } from "@specify-sh/publisher-sdk/server";
 
 const publisherKey = process.env.SPECIFY_PUBLISHER_KEY;
-const walletAddress = process.env.WALLET_ADDRESS;
+const walletAddress = process.env.SPECIFY_WALLET_ADDRESS;
 
 if (!publisherKey) {
   throw new Error("SPECIFY_PUBLISHER_KEY is not set");
 }
 
 if (!walletAddress) {
-  throw new Error("WALLET_ADDRESS is not set");
+  throw new Error("SPECIFY_WALLET_ADDRESS is not set");
 }
 
 try {
